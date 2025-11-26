@@ -89,6 +89,8 @@ DATABASES = {
         'USER':env.str('DJANGO_DB_USER'),
         'PASSWORD':env.str('DJANGO_DB_PASSWORD'),
     }
+    #DJANGO_DB_ULR=postgres://USER:PASSWORD@HOST:PORT/NAME
+    #'default': env.db('DJANGO_DB_ULR')
 }
 
 
