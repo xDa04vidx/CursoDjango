@@ -3,6 +3,9 @@ from django.views.generic.base import TemplateView
 from products.models import Product
 from django.views import generic
 from .forms import ProductForm
+from rest_framework.views import APIView
+from .serializers import ProductSerializer
+from rest_framework.response import Response
 
 # Create your views here.
 class ProductListView(generic.ListView):
@@ -23,3 +26,12 @@ class ProductFormView(generic.FormView):
             form.save()
             return super().form_valid(form)
         return self.form_invalid(form)
+
+
+class ProductListAPI(APIView):
+    authentication_classes =[]
+    permission_classes=[]
+    def get(self,request):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)

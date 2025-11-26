@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import ProductListView, ProductFormView
+from .views import ProductListView, ProductFormView, ProductListAPI
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='list_product'),
     path('agregar/', ProductFormView.as_view(), name="add_product"),
+    path('api/', ProductListAPI.as_view(),name="list_product_api")
 ]
