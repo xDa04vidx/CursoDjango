@@ -19,6 +19,6 @@ from django.urls import include, path
 from .views import ProductListView, ProductFormView
 
 urlpatterns = [
-    path('listado/', ProductListView.as_view(), name='list_product'),
+    path('', ProductListView.as_view(), name='list_product'),
     path('agregar/', ProductFormView.as_view(), name="add_product"),
 ]
