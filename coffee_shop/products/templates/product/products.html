@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de productos</h1>
+
+<div class="row">
+    {% for product in productList %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+
+                {% if product.photo %}
+                    <img src="{{ product.photo.url }}" class="card-img-top" alt="{{ product.name }}" width="120">
+                {% else %}
+                    <img src="https://placehold.co/300x200?text=Sin+Imagen" class="card-img-top">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="fw-bold">${{ product.price }}</p>
+                </div>
+
+            </div>
+        </div>
+    {% empty %}
+        <p>No hay productos en la base de datos.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
