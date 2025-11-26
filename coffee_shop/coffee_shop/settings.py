@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-szp9dn!z7i*tt9r1x6%i)551)ys9jg0mln15annlbt3!30xu27
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'coffee-shop-production.eba-ymu8p5ts.us-east-2.elasticbeanstalk.com'
+    '*'
 ]
 
 
@@ -83,16 +83,16 @@ WSGI_APPLICATION = 'coffee_shop.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env.str('DJANGO_DB_NAME'),
-        'HOST':env.str('DJANGO_DB_HOST'),
-        'PORT':env.str('DJANGO_DB_PORT'),
-        'USER':env.str('DJANGO_DB_USER'),
-        'PASSWORD':env.str('DJANGO_DB_PASSWORD'),
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': env.str('DJANGO_DB_NAME'),
+    #     'HOST':env.str('DJANGO_DB_HOST'),
+    #     'PORT':env.str('DJANGO_DB_PORT'),
+    #     'USER':env.str('DJANGO_DB_USER'),
+    #     'PASSWORD':env.str('DJANGO_DB_PASSWORD'),
+    # }
     #DJANGO_DB_ULR=postgres://USER:PASSWORD@HOST:PORT/NAME
-    #'default': env.db('DJANGO_DB_ULR')
+    'default': env.db('DJANGO_BD_URL')
 }
 
 
